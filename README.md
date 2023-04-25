@@ -13,7 +13,7 @@ CREATE USER 'sys_temp'@'localhost' IDENTIFIED BY 'password';
 
 1.3. Выполните запрос на получение списка пользователей в базе данных. (скриншот)
 ```
-SELECT User FROM mysql.user;
+SELECT User, host FROM mysql.user;
 ```
 1.4. Дайте все права для пользователя sys_temp. 
 ```
