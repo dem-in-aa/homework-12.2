@@ -47,9 +47,47 @@ SHOW full TABLES;
 
 ### Задание 2
 Составьте таблицу, используя любой текстовый редактор или Excel, в которой должно быть два столбца: в первом должны быть названия таблиц восстановленной базы, во втором названия первичных ключей этих таблиц. Пример: (скриншот/текст)
+
+<ins>Ответ</ins>:
+
+Для получения данных из БД с ресурса
+https://translated.turbopages.org/proxy_u/en-ru.ru.9282131b-64480fae-4cb12cf5-74722d776562/https/dataedo.com/kb/query/mysql/list-all-primary-keys-and-their-columns#toc_1  
+взят скрипт и приведен к следующему содержанию:
+```
+select
+    tab.table_name,
+    sta.column_name
+from information_schema.tables as tab
+inner join information_schema.statistics as sta
+        on sta.table_schema = tab.table_schema
+        and sta.table_name = tab.table_name
+        and sta.index_name = 'primary'
+where tab.table_schema = 'sakila'
+    and tab.table_type = 'BASE TABLE'
+order by tab.table_name
+```
+в результате выполнения получен вывод из БД только таблиц, имеющих первичный ключ: 
 ```
 Название таблицы | Название первичного ключа
-customer         | customer_id
+
+actor        |actor_id    |
+address      |address_id  |
+category     |category_id |
+city         |city_id     |
+country      |country_id  |
+customer     |customer_id |
+film         |film_id     |
+film_actor   |actor_id    |
+film_actor   |film_id     |
+film_category|film_id     |
+film_category|category_id |
+film_text    |film_id     |
+inventory    |inventory_id|
+language     |language_id |
+payment      |payment_id  |
+rental       |rental_id   |
+staff        |staff_id    |
+store        |store_id    |
 ```
 
 
