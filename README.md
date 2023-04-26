@@ -108,7 +108,7 @@ SHOW GRANTS FOR 'sys_temp'@'localhost';
 После этого удаляем права на внесение, изменение и удаление данных из базы:
 
 ```
-
+REVOKE INSERT, UPDATE, DELETE ON `sakila`.* FROM 'sys_temp'@'localhost';
 ```
 
 3.2. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
