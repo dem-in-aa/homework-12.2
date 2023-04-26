@@ -112,5 +112,17 @@ REVOKE INSERT, UPDATE, DELETE ON `sakila`.* FROM 'sys_temp'@'localhost';
 ```
 
 3.2. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
+```
+SHOW GRANTS FOR 'sys_temp'@'localhost';
+```
+```
+Grants for sys_temp@localhost                                                                                                                                                                                     |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+GRANT USAGE ON *.* TO `sys_temp`@`localhost`                                                                                                                                                                      |
+GRANT SELECT, CREATE, DROP, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON `sakila`.* TO `sys_temp`@`localhost`|
+
+2 row(s) fetched.
+```
+
 
 *Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.*
