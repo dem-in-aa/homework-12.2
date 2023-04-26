@@ -6,24 +6,31 @@
 ### Задание 1
 1.1. Поднимите чистый инстанс MySQL версии 8.0+. Можно использовать локальный сервер или контейнер Docker.
 
+![](img/1-1.png)
+
 1.2. Создайте учётную запись sys_temp. 
 ```
 CREATE USER 'sys_temp'@'localhost' IDENTIFIED BY 'password';
 ```
+![](img/1-2.png)
 
 1.3. Выполните запрос на получение списка пользователей в базе данных. (скриншот)
 ```
 SELECT User, host FROM mysql.user;
 ```
+![](img/1-3.png)
+
 1.4. Дайте все права для пользователя sys_temp. 
 ```
 GRANT ALL PRIVILEGES ON *.* TO 'sys_temp'@'localhost';
 ```
+![](img/1-4.png)
+
 1.5. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
 ```
 SHOW GRANTS FOR 'sys_temp'@'localhost';
 ```
-
+![](img/1-5.png)
 
 1.6. Переподключитесь к базе данных от имени sys_temp.
 
@@ -31,16 +38,25 @@ SHOW GRANTS FOR 'sys_temp'@'localhost';
 ```sql
 ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
+![](img/1-6.png)
+
 1.6. По ссылке https://downloads.mysql.com/docs/sakila-db.zip скачайте дамп базы данных.
 
 1.7. Восстановите дамп в базу данных.
 ```
 mysql> source J:\downloads\sakila-db\sakila-db\sakila-schema.sql
 ```
+![](img/1-7.png)
+---
+![](img/1-7-1.png)
+
 1.8. При работе в IDE сформируйте ER-диаграмму получившейся базы данных. При работе в командной строке используйте команду для получения всех таблиц базы данных. (скриншот)
 ```
 SHOW full TABLES;
 ```
+![](img/1-8.png)
+---
+![](img/1-8-1.png)
 
 *Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.*
 
@@ -89,7 +105,7 @@ rental       |rental_id   |
 staff        |staff_id    |
 store        |store_id    |
 ```
-
+![](img/2-1.png)
 
 ## Дополнительные задания (со звёздочкой*)
 Эти задания дополнительные, то есть не обязательные к выполнению, и никак не повлияют на получение вами зачёта по этому домашнему заданию. Вы можете их выполнить, если хотите глубже шире разобраться в материале.
@@ -101,15 +117,22 @@ store        |store_id    |
 ```
 GRANT ALL PRIVILEGES ON `sakila`.* TO 'sys_temp'@'localhost';
 ```
+![](img/3-1.png)
+
 Затем проверяем привилегии пользователя для этой БД:
 ```
 SHOW GRANTS FOR 'sys_temp'@'localhost';
 ```
+![](img/3-3.png)
+---
+![](img/3-2.png)
+
 После этого удаляем права на внесение, изменение и удаление данных из базы:
 
 ```
 REVOKE INSERT, UPDATE, DELETE ON `sakila`.* FROM 'sys_temp'@'localhost';
 ```
+![](img/3-4.png)
 
 3.2. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
 ```
@@ -123,6 +146,8 @@ GRANT SELECT, CREATE, DROP, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, L
 
 2 row(s) fetched.
 ```
-
+![](img/3-6.png)
+---
+![](img/3-5.png)
 
 *Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.*
