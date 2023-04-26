@@ -45,6 +45,8 @@ ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass
 1.6. По ссылке https://downloads.mysql.com/docs/sakila-db.zip скачайте дамп базы данных.
 
 1.7. Восстановите дамп в базу данных.
+
+После распаковки скачанного архива нужно подключить дамп БД к серверу MySQL через CLI-client:
 ```
 mysql> source J:\downloads\sakila-db\sakila-db\sakila-schema.sql
 ```
