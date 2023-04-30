@@ -70,9 +70,12 @@ SHOW full TABLES;
 
 <ins>Ответ</ins>:
 
-Для получения данных из БД с ресурса
+```
+SELECT TABLE_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.key_column_usage WHERE table_schema = 'sakila' AND CONSTRAINT_NAME = 'PRIMARY';
+```
+либо можно использовать скрипт с ресурса
 https://translated.turbopages.org/proxy_u/en-ru.ru.9282131b-64480fae-4cb12cf5-74722d776562/https/dataedo.com/kb/query/mysql/list-all-primary-keys-and-their-columns#toc_1  
-взят скрипт и приведен к следующему содержанию:
+приведенный к следующему содержанию:
 ```
 select
     tab.table_name,
